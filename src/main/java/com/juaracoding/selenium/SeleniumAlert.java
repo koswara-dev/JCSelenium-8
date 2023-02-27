@@ -12,7 +12,7 @@ public class SeleniumAlert {
         System.setProperty("webdriver.chrome.driver", "C:\\juaracoding\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
         String url = "https://demoqa.com/alerts";
         driver.get(url);
         System.out.println("Get URL");
