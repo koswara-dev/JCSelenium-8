@@ -26,7 +26,7 @@ public class TestLogin {
         System.out.println("Maximize Browser");
     }
 
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void testValidLogin(){
         //step action
         login("Admin","admin123");
@@ -40,6 +40,16 @@ public class TestLogin {
         delay(1);
         //step action
         login("Admin","admin1234");
+        //step verify
+        String txtInvalidLogin = driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")).getText();
+        Assert.assertEquals(txtInvalidLogin, "Invalid credentials");
+    }
+
+    @Test(priority = 2)
+    public void testInvalidLoginUsernamePasswordNull(){
+        delay(1);
+        //step action
+        login("","");
         //step verify
         String txtInvalidLogin = driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")).getText();
         Assert.assertEquals(txtInvalidLogin, "Invalid credentials");
